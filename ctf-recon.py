@@ -9,7 +9,7 @@ os.system("pwd=$(pwd)") #needed for eyewitness
 
 print("#####################################################################################")
 print("#                                                                                   #")
-print("#                                   CTF-RECON                                       #")
+print("#                                  CTF-WEB-RECON                                    #")
 print("#                                                                                   #")
 print("#####################################################################################")
 print("#                                                                                   #")
@@ -28,6 +28,10 @@ os.system("mkdir thirdlevels")
 os.system("mkdir scans")
 os.system("mkdir eyewitness")
 
+print("Running whois. . .")
+os.system(f"whois {target} >> whois.txt")
+
+#Subdomains:
 print("Running sublist3r. . .")
 os.system(f"sublist3r -d {target} -o final.txt")
 os.system(f"echo {target} >> final.txt")
