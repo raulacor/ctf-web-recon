@@ -7,7 +7,21 @@ keyboard = Controller()
 
 os.system("pwd=$(pwd)") #needed for eyewitness
 
-target = input("Input target: ")
+print("#####################################################################################")
+print("#                                                                                   #")
+print("#                                   CTF-RECON                                       #")
+print("#                                                                                   #")
+print("#####################################################################################")
+print("#                                                                                   #")
+print("#  Author: Raul Azzi Corsi                                                          #")
+print("#  Date:   03/2026                                                                  #")
+print("#  Description: ALL RIGHTS RESERVED                                                 #")
+print("#                                                                                   #")
+print("#####################################################################################")
+
+
+target = input("\033[32m{}\033[0m".format("Input target: "))
+pwd = input("\033[32m{}\033[0m".format("Input folder path: [e.t. ~/usr/bin/]"))
 
 print("Creating folders. . .")
 os.system("mkdir thirdlevels")
@@ -34,4 +48,4 @@ print("Scanning for open ports. . .")
 os.system("nmap -iL probed.txt -T5 -oA scans/scanned.txt")
 
 print("Running eyewitness. . .")
-os.system(f"eyewitness -f $pwd/probed.txt -d {target}")
+os.system(f"eyewitness -f {pwd}probed.txt -d {target}")
