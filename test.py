@@ -20,6 +20,7 @@ print("#########################################################################
 def setup():
     print("Creating folders. . .")
     os.system("mkdir thirdlevels scans eyewitness")
+    #os.system("apt install subfinder")
 
 def initial_recon(target):
     print("Running whois. . .")
@@ -27,6 +28,9 @@ def initial_recon(target):
 
     print("Searching web directories with ffuf. . .")
     os.system(f"ffuf -u {target}/FUZZ -w /usr/share/wordlists/dirb/common.txt")
+
+    print("Running curl. . .")
+    os.system(f"curl -I {target} -o curl.txt")
 
 def subfinders(target, pwd):
     print("Running sublist3r. . .")
